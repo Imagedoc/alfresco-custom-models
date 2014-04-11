@@ -1,0 +1,10 @@
+<!-- Step 1: Create a new model-->
+<model name="id:newmodel" xmlns="http://www.alfresco.org/model/dictionary/1.0">
+	<description>Imagedoc New Model</description>
+	<author>Erick Mendonça</author>
+	<version>1.0</version>
+
+	<namespaces>
+		<namespace uri="id.new.model" prefix="id"/>
+	</namespaces>
+</model>
