@@ -1,4 +1,4 @@
-<!-- Step 2: Create a new Content Type-->
+<!-- Step 3: Create a new Aspect-->
 <model name="id:newmodel" xmlns="http://www.alfresco.org/model/dictionary/1.0">
 	<description>Imagedoc New Model</description>
 	<author>Erick Mendonça</author>
@@ -31,4 +31,20 @@
 		</type>
 	</types>
 
+	<aspects>
+		<aspect name="id:imageClassification">
+			<title>Classificação de Imagem</title>
+			<properties>
+				<property name="id:width">
+					<type>d:int</type>
+				</property>
+				<property name="id:height">
+					<type>d:int</type>
+				</property>
+				<property name="id:resolution">
+					<type>d:int</type>
+				</property>
+			</properties>
+		</aspect>
+	</aspects>
 </model>
