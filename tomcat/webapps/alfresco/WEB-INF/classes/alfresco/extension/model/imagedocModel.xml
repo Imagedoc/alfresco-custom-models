@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Definition of new Model -->
+<model name="id:newmodel" xmlns="http://www.alfresco.org/model/dictionary/1.0">
+	
+	<!-- Optional meta-data about the model -->
+	<description>Imagedoc New Model</description>
+	<author>Erick Mendonça</author>
+	<version>1.0</version>
+	<!-- Imports are required to allow references to definitions in other models -->
+	<imports>
+		<!-- Import Alfresco Dictionary Definitions -->
+		<import uri="http://www.alfresco.org/model/dictionary/1.0" prefix="d" />
+		<!-- Import Alfresco Content Domain Model Definitions -->
+		<import uri="http://www.alfresco.org/model/content/1.0" prefix="cm"/>
+	</imports>
+
+	<!-- Introduction of new namespaces defined by this model -->
+	<namespaces>
+		<namespace uri="id.new.model" prefix="id"/>
+	</namespaces>
+
+	<!-- Type and Aspect definitions go here -->
+	<types>
+		<!-- Enterprise-wide generic document type -->
+		<type name="id:doc">
+			<title>Documento Imagedoc</title>
+			<parent>cm:content</parent>
+			<associations>
+				<association name="id:relatedDocuments">
+					<title>Documentos Relacionados</title>
+					<source>
+						<mandatory>false</mandatory>
+						<many>true</many>
+					</source>
+					<target>
+						<class>id:doc</class>
+						<mandatory>false</mandatory>
+						<many>true</many>
+					</target>                
+				</association>            
+			</associations>
+			<mandatory-aspects>
+				<aspect>cm:generalclassifiable</aspect>            
+			</mandatory-aspects>        
+		</type>
+
+		<type name="id:pag">
+			<title>Pagamento Imagedoc</title>
+			<parent>id:doc</parent>
+			<properties>
+				<property name="id:fornecedor">
+					<title>Fornecedor</title>
+					<type>d:text</type>                
+				</property>
+				<property name="id:numNota">
+					<title>Número da Nota</title>
+					<type>d:text</type>                
+				</property>
+				<property name="id:dtPagamento">
+					<title>Data do Pagamento</title>
+					<type>d:date</type>                
+				</property>
+			</properties>
+		</type>
+
+		<type name="id:authorised">
+			<title>Documento Autorizado Imagedoc</title>
+			<parent>cm:content</parent>
+			<properties>
+				<property name="id:publishedDate">
+					<type>d:datetime</type>
+				</property>
+				<property name="id:authorisedBy">
+					<type>d:text</type>
+				</property>
+			</properties>
+		</type>
+	</types>
+
+	<aspects>
+		<aspect name="id:imageClassification">
+			<title>Classificação de Imagem</title>
+			<properties>
+				<property name="id:width">
+					<type>d:int</type>
+				</property>
+				<property name="id:height">
+					<type>d:int</type>
+				</property>
+				<property name="id:resolution">
+					<type>d:int</type>
+				</property>
+			</properties>
+		</aspect>
+	</aspects>
+</model>

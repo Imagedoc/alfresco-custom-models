@@ -7,7 +7,7 @@
     <bean id="imagedoc.models" parent="dictionaryModelBootstrap" depends-on="dictionaryBootstrap">
         <property name="models">
             <list>
-                <value>alfresco/extension/imagedocModel.xml</value>
+                <value>alfresco/extension/model/imagedocModel.xml</value>
             </list>
         </property>
     </bean>
